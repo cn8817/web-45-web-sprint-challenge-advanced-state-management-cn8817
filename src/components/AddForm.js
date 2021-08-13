@@ -22,7 +22,7 @@ const AddForm = (props) => {
         e.preventDefault();
         props.addSmurf(name, nickname, position, description )
         if (state.name === "" || state.position === "" || state.nickname === "") {
-           props.error();
+           props.fetchFail();
         }
     }
 
