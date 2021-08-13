@@ -13,6 +13,12 @@ const reducer = (state = initialState, action)=>{
                 isFetching:true,
                 error:''
             })
+        case(FETCH_SUCCESS):
+            return({
+                ...state,
+                smurfs: [action.payload],
+                isFetching:false,
+            })
     }
 }
 
