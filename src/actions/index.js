@@ -5,6 +5,21 @@ import axios from 'axios';
 //2. Add a standard action that allows us to add new smurf (including the name, nickname, position, summary)
 //3. Add a standard action that allows us to set the value of the error message slice of state.
 
+//thunk action
+export const fetchSmurfs = () => {
+    return(dispatch) => {
+        dispatch(fetchStart())
+        axios.get('http://localhost:3000/')
+            .then(res => {
+                dispatch(fetchSuccess(res.data))
+            })
+            .catch(error => {
+                dispatch(fetchFail(error))
+            })
+    }
+}
+
+//General actions
 export const FETCH_START = "FETCH_START"
 export const fetchStart = () => {
     return({type: FETCH_START})

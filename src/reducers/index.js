@@ -43,6 +43,12 @@ const reducer = (state = initialState, action)=>{
                     id: action.payload,
                 }]
             })
+        // case(ERROR):
+        //     return({
+        //         ...state,
+        //         error: 'Error!',
+        //         isFetching:false
+        //     })
         default:
             return state
     }
