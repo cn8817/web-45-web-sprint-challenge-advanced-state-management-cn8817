@@ -32,8 +32,8 @@ export const fetchSuccess = (smurfs) =>{
 }
 
 export const FETCH_FAIL = "FETCH_FAIL"
-export const fetchFail = () => {
-    return({type:FETCH_FAIL})
+export const fetchFail = (error) => {
+    return({type:FETCH_FAIL, payload:error})
 }
 
 export const ADD_SMURF = "ADD_SMURF"

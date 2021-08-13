@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { fetchFail, addSmurf, error } from '../actions/index';
 
 const AddForm = (props) => {
+    const { name, nickname, position, description } = props
     const [state, setState] = useState({
         name:"",
         position:"",
@@ -19,7 +20,7 @@ const AddForm = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        props.addSmurf()
+        props.addSmurf(name, nickname, position, description )
         if (state.name === "" || state.position === "" || state.nickname === "") {
            props.fetchFail();
         }
@@ -56,9 +57,10 @@ const AddForm = (props) => {
 
 const mapStateToProps = state => {
     return{
-      fetchFail: state.fetchFail,
-      addSmurf: state.addSmurf,
-      error: state.error,
+      name: state.name,
+      nickname: state.nickname,
+      position: state.position,
+      description: state.decription
     }
   }
 
