@@ -22,7 +22,7 @@ const AddForm = (props) => {
         e.preventDefault();
         props.addSmurf(name, nickname, position, description )
         if (state.name === "" || state.position === "" || state.nickname === "") {
-           props.fetchFail();
+           props.fetchFail("errrror");
         }
     }
 
@@ -48,7 +48,7 @@ const AddForm = (props) => {
                 <textarea onChange={handleChange} value={state.description} name="description" id="description" />
             </div>
             {
-                errorMessage && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {errorMessage}</div>
+                errorMessage && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {props.fetchFail}</div>
             }
             <button>Submit Smurf</button>
         </form>
