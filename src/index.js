@@ -9,6 +9,7 @@ import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import reducer from './reducers/index'
 
 const { worker } = require('./mocks/browser');
 worker.start();

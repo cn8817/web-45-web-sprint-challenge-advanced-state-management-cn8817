@@ -9,8 +9,9 @@ import axios from 'axios';
 export const fetchSmurfs = () => {
     return(dispatch) => {
         dispatch(fetchStart())
-        axios.get('http://localhost:3000/')
+        axios.get('http://localhost:3333/smurfs')
             .then(res => {
+                console.log(res.data)
                 dispatch(fetchSuccess(res.data))
             })
             .catch(error => {
@@ -19,7 +20,7 @@ export const fetchSmurfs = () => {
     }
 }
 
-//General actions
+//Standard actions
 export const FETCH_START = "FETCH_START"
 export const fetchStart = () => {
     return({type: FETCH_START})
@@ -31,11 +32,16 @@ export const fetchSuccess = (smurfs) =>{
 }
 
 export const FETCH_FAIL = "FETCH_FAIL"
-export const fetchFail = (error) => {
-    return({type:FETCH_FAIL, payload: error})
+export const fetchFail = () => {
+    return({type:FETCH_FAIL})
 }
 
 export const ADD_SMURF = "ADD_SMURF"
 export const addSmurf = (data) => {
     return({type:ADD_SMURF, payload: data})
+}
+
+export const ERROR = "ERROR"
+export const error = () => {
+    return({type:ERROR})
 }
