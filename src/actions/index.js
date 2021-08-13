@@ -37,8 +37,8 @@ export const fetchFail = () => {
 }
 
 export const ADD_SMURF = "ADD_SMURF"
-export const addSmurf = (data) => {
-    return({type:ADD_SMURF, payload: data})
+export const addSmurf = (value) => {
+    return({type:ADD_SMURF, payload: value})
 }
 
 export const ERROR = "ERROR"

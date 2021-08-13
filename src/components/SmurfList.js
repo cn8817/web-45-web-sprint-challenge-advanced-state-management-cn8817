@@ -1,18 +1,20 @@
 import React from 'react';
 import Smurf from './Smurf';
 import { connect } from 'react-redux'
-import { fetchStart, fetchSmurfs } from '../actions';
+import { fetchStart, fetchSuccess } from '../actions';
 
  const SmurfList = (props)=> {
-    const isLoading = props.fetchStart;
-    const testSmurf = props.fetchSmurfs()
+    const isLoading = false;
+    const testSmurf = props.fetchSuccess
+    const {smurfs} = props
 
     if (isLoading) {
         return <h1>Loading...</h1>;
     }
-
-    return(<div className="listContainer">
-        <Smurf smurf={testSmurf}/>
+    
+    return(
+    <div className="listContainer">
+        {smurfs.map(()=><Smurf smurf={testSmurf}/>)}
     </div>);
 }
 
@@ -23,9 +25,8 @@ import { fetchStart, fetchSmurfs } from '../actions';
 
 const mapStateToProps = state => {
     return{
-      fetchStart: state.fetchStart,
-      fetchSmurfs: state.fetchSmurfs
+      smurfs: state.smurfs
     }
   }
   
-export default connect(mapStateToProps, {fetchStart, fetchSmurfs})(SmurfList)
+export default connect(mapStateToProps, {fetchStart, fetchSuccess})(SmurfList)

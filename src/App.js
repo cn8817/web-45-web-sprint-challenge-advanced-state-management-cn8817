@@ -35,10 +35,10 @@ class App extends Component {
 //1. Connect the fetchSmurfs actions to the App component.
 //2. Call the fetchSmurfs action when the component first loads.
 
-const mapActionsToProps = ()=> {
-  return{
-    fetchSmurfs: fetchSmurfs,
-  }
-}
+// const mapActionsToProps = ()=> {
+//   return{
+//     fetchSmurfs: fetchSmurfs,
+//   }
+// }
 
-export default connect(mapActionsToProps,{fetchSmurfs})(App)
+export default connect(null,{fetchSmurfs})(App)

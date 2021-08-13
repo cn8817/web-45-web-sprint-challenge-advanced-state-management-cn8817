@@ -22,25 +22,20 @@ const reducer = (state = initialState, action)=>{
         case(FETCH_SUCCESS):
             return({
                 ...state,
-                smurf: [action.payload],
+                smurfs: action.payload,
                 isFetching:false,
             })
         case(FETCH_FAIL):
             return({
                 ...state,
                 isFetching:false,
+                error: action.payload,
             })
         case(ADD_SMURF):
             return({
                 ...state,
                 smurfs:[...state.smurfs, 
-                {
-                    name: action.payload,
-                    nickname: action.payload,
-                    position: action.payload,
-                    description: action.payload,
-                    id: action.payload,
-                }]
+                action.payload]
             })
         case(ERROR):
             return({
