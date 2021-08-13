@@ -1,6 +1,6 @@
 import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, ADD_SMURF, ERROR } from "../actions"
 export const initialState = {
-    smurf: [{
+    smurfs: [{
         name: '',
         nickname: '',
         position: '',
@@ -33,7 +33,7 @@ const reducer = (state = initialState, action)=>{
         case(ADD_SMURF):
             return({
                 ...state,
-                smurf:[...state.smurf, 
+                smurfs:[...state.smurfs, 
                 {
                     name: action.payload,
                     nickname: action.payload,
