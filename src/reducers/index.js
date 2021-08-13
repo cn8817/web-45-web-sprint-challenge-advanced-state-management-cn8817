@@ -1,6 +1,12 @@
 
 export const initialState = {
-    smurfs: [],
+    smurfs: [{
+        name: '',
+        nickname: '',
+        position: '',
+        description: '',
+        id: ''
+    }],
     isFetching: false,
     error:'',
 }
@@ -24,6 +30,18 @@ const reducer = (state = initialState, action)=>{
                 ...state,
                 isFetching:false,
                 error: action.payload,
+            })
+        case(ADD_SMURF):
+            return({
+                ...state,
+                smurfs:[...state.smurfs, 
+                {
+                    name:action.payload,
+                    nickname: action.payload,
+                    position: action.payload,
+                    description: action.payload,
+                    id: action.payload,
+                }]
             })
         default:
             return state
