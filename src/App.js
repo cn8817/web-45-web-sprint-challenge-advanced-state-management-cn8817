@@ -9,13 +9,14 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
+import { connect } from 'react-redux'
+import { fetchSmurfs } from './actions/index'
+
 class App extends Component {
   componentDidMount() {
-    axios.get('http://localhost:3333/smurfs')
-    .then(res => console.log(res))
-    .catch(err => console.log('Axios Error', err));
+    this.props.fetchSmurfs()
   }
-
+ 
   render() {
     return (
       <div className="App">
@@ -30,8 +31,14 @@ class App extends Component {
   }
 }
 
-export default App;
-
 //Task List:
 //1. Connect the fetchSmurfs actions to the App component.
 //2. Call the fetchSmurfs action when the component first loads.
+
+const mapActionsToProps = ()=> {
+  return{
+    fetchSmurfs: fetchSmurfs,
+  }
+}
+
+export default connect(mapActionsToProps,{fetchSmurfs})(App)
